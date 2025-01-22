@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1>This is first app home page</h1>
+    <h2>{{ Name }}</h2>
+    <h2>{{ Age }}</h2>
+    <h2>{{ Profession }}</h2>
+    <h2>{{ Friends }}</h2>
+    <h2>{{ Courses }}</h2>
+
+    {% for i in Friends %}
+      <h3>{{ i }}</h3>
+    {% endfor %}
+
+    {% for i in Courses %}
+      <h3>{{ i.Name }}</h3>
+    {% endfor %}
+
+    {{ Friends|length }} <br />
+    {{ Age|add:'2' }} <br />
+    {{ "I'm Nasir"|addslashes }} <br />
+    {{ 'hi, i am nasir'|capfirst }} <br />
+    "{{ 'hello'|center:'15' }}" <br />
+    {{ 'hi, i am nasir'|cut:'i' }} <br />
+    {{ date|date:'D d M Y' }} <br />
+    {{ ''|default:"whats'up!!" }} <br />
+    {{ Courses|dictsort:'Price' }} <br />
+    {{ Age|divisibleby:'5' }} <br />
+    {% comment %} {{ val|escape }} <br /> {% endcomment %}
+    {{ '123456789'|filesizeformat }} <br />
+    {{ Courses|first }} <br />
+    {{ Friends|join:'-' }} <br />
+    {{ Courses|last }} <br />
+    {% comment %} {{ Friends|linenumbers }} <br /> {% endcomment %}
+    {{ 'hi, i am nasir'|upper }} <br />
+    {{ 'Hi, I Am Nasir'|lower }} <br />
+    {{ 'hellow!'|make_list }} <br />
+    {{ Courses|random }} <br />
+    {{ Courses|slice:'2' }} <br />
+    {{ 'Hi, I Am Nasir'|slugify }} <br />
+    {{ time|time:'H:i' }} <br />
+    {{ birthdate|timesince:date }} <br />
+    {{ 'hi, i aM nAsIR'|title }} <br />
+    {% comment %} {{ Friends|unordered_list }} {% endcomment %}
+    {{ Courses|wordcount }} <br />
+    {{ date|date }} <br />
+    {{ 'nasir'|length }} <br />
+    {{ 'cloud compyting'|truncatechars:6 }} <br />
+    {{ 'You can build web apps with python and Django'|truncatewords:5 }} <br />
+    <b>This</b> is <em>a</em> <button>Button</button> <br />
+    {{ '<b>This</b> is <em>a</em> <button>Button</button>'|striptags }} <br />
+    You have {{ 1 }} message{{ 1|pluralize }} <br />
+    You have {{ 2 }} tomato{{ 2|pluralize:'es' }} <br />
+    You have {{ 1 }} cherr{{ 1|pluralize:'y,ies' }} <br />
+  </body>
+</html>
