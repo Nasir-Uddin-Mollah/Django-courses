@@ -1,16 +1,4 @@
 {% extends 'base.html' %}
 {% block content %}
   <h1 class="text-center">This is project home page</h1>
-  <div class="mt-5 d-flex flex-wrap justify-content-center">
-    {% for meal in meals %}
-      <div class="card m-3" style="width: 18rem;">
-        <img src="{{ meal.strMealThumb }}" class="card-img-top" alt="..." />
-        <div class="card-body">
-          <h5 class="card-title">{{ meal.strMeal }}</h5>
-          <p class="card-text">Very delicious item. The id for this meal is
-            {{ meal.idMeal }}</p>
-        </div>
-      </div>
-    {% endfor %}
-  </div>
 {% endblock %}
