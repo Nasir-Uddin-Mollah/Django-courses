@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+{% comment %} {% if messages %}
+  <div class="mt-3 text-center">
+    {% for m in messages %}
+      <div class="alert {% if m.tags == 'success' %}
+           alert-success
+        {% elif m.tags == 'error' %}
+           alert-danger
+       {% else %}
+           alert-info
+        {% endif %}"
+        role="alert">{{ m }}</div>
+    {% endfor %}
+  </div>
+{% endif %} {% endcomment %}
+
+
+    {% if messages %}
+    {% for m in messages %}
+      <small {% if m.tags %} class="{{m.tags}}" {% endif %} >{{m}}</small>
+    {% endfor %}
+    {% endif %}
+
+    <form method="post" style="width: 50%; margin: auto;" novalidate>
+    <h1>Sign Up</h1>
+      {% csrf_token %}
+      {% for frm in form %}
+        {% comment %} {{ frm.label_tag }} {% endcomment %}
+        {{ frm|as_crispy_field }}
+        {% comment %} {{ frm.errors|striptags }} {% endcomment %}
+      {% endfor %}
+      <small>Already have an account? <a href="{% url "login" %}">Login</a></small><br>
+      <button class="btn btn-primary mt-1" type="submit">Submit</button>
+    </form>
+
+    
+{% endblock  %}
